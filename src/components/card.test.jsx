@@ -5,7 +5,7 @@ describe('Card component', () => {
 
 test('renders cardText', () => {
     render(<Card />);
-    const imageElement = screen.getByAltText('profile picture');
+    const imageElement = screen.getByAltText('profile data');
     expect(imageElement).toBeInTheDocument();
   });
   
@@ -21,5 +21,7 @@ test('renders cardText', () => {
     const paragraphData = screen.getByText(/I am a Banana/i)
     expect(paragraphData).toBeInTheDocument()
   })
+
+ 
   
 })
