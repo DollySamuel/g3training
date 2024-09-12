@@ -1,37 +1,53 @@
 import './App.css';
-import Card from './components/Card';
-import minionImage from './assets/minion.jpg'
-import littleMargo from './assets/littleMargo.jpg'
-import Mona from './assets/Mona.jpg'
+import FirstStep from './components/FirstStep';
+import SecondStep from './components/SecondStep';
+import ThridStep from './components/ThridStep';
+import {Stepper,StepLabel,Step} from '@mui/material'
 
 
 function App() {
 
-  const cardData = [
-    {
-      
-      altText : "Card one",
-      image : minionImage,
-      title : "Minion",
-      text : "I am a Minion"
-    },
-    {
-      altText : "Card two",
-      image : littleMargo,
-      title : "Margo",
-      text : "I am a Margo"
-    },
-    {
-      altText : "Card three",
-      image : Mona,
-      title : "Mona",
-      text : "I am Mona"
-    },
+  function showStep (step) {
+    switch(step) {
+      case 1 : 
+      return <FirstStep/>
+      case 2: 
+      return <SecondStep/>
+      case 3:
+        return <ThridStep/>
 
-  ]
+    default: 
+    //do nothing
+    }
+    
+  }
+
   return (
-    <div>
-      <Card data = {cardData}/>
+    <div className='App'>
+      <header className='App-header'>
+      <h3 style={{color :'blue', textDecoration:'underline'}}>Please Sign Up to Login</h3>
+      <div className='center-stepper'>
+      <Stepper style={{width : '18%'}} activeStep = "1" orientation='horizontal'>
+        <Step>
+          <StepLabel>
+
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>
+          
+          </StepLabel>
+        </Step>
+
+        <Step>
+          <StepLabel>
+          
+          </StepLabel>
+        </Step>
+      </Stepper>
+      </div>
+      {showStep(1)}
+      </header>
     </div>
   );
 }
